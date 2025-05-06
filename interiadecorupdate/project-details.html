@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details - Interia Decor</title>
+  <!-- Add your CSS/JS links here -->
+</head>
+<body>
+  <!-- Navigation (same as other pages) -->
+
+  <!-- Project Details Hero -->
+  <section class="project-details-hero">
+    <div class="container">
+      <h1 id="project-title">Project Title</h1>
+      <p id="project-category">Category</p>
+    </div>
+  </section>
+
+  <!-- Project Details Content -->
+  <section class="project-details-content py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="project-gallery mb-5" id="project-gallery">
+            <!-- Gallery images will be added by JavaScript -->
+          </div>
+          
+          <div class="project-description" id="project-description">
+            <!-- Description will be added by JavaScript -->
+          </div>
+        </div>
+        
+        <div class="col-lg-4">
+          <div class="project-info-card">
+            <h3>Project Details</h3>
+            <ul class="project-meta" id="project-meta">
+              <!-- Meta info will be added by JavaScript -->
+            </ul>
+            <a href="contact.html" class="btn btn-primary btn-block">Start Your Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Projects -->
+  <section class="related-projects py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5">Related Projects</h2>
+      <div class="projects-grid" id="related-projects">
+        <!-- Related projects will be added by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (same as other pages) -->
+
+  <script>
+    // Get project ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const projectId = urlParams.get('id');
+    
+    // Fetch project data (in real implementation, this would be from an API)
+    document.addEventListener('DOMContentLoaded', function() {
+      const projects = [
+        {
+          id: 1,
+          title: "Modern Villa",
+          category: "Residential Design",
+          images: [
+            "project1-1.jpg",
+            "project1-2.jpg",
+            "project1-3.jpg"
+          ],
+          description: "<p>This modern villa project transformed a traditional home into a contemporary living space. We focused on open-plan living, natural light optimization, and seamless indoor-outdoor transitions.</p><p>The design features clean lines, minimalist furniture, and a neutral color palette with strategic pops of color.</p>",
+          details: {
+            "Location": "Sylhet, Bangladesh",
+            "Area": "2500 sq ft",
+            "Completed": "March 2023",
+            "Design Style": "Contemporary",
+            "Materials": "Teak wood, Marble, Glass"
+          },
+          related: [2, 3]
+        }
+        // Add other projects here
+      ];
+      
+      const currentProject = projects.find(p => p.id == projectId);
+      
+      if (currentProject) {
+        // Update page content
+        document.getElementById('project-title').textContent = currentProject.title;
+        document.getElementById('project-category').textContent = currentProject.category;
+        
+        // Add gallery images
+        const gallery = document.getElementById('project-gallery');
+        currentProject.images.forEach((img, index) => {
+          gallery.innerHTML += `
+            <div class="gallery-item ${index === 0 ? 'active' : ''}">
+              <img src="assets/images/projects/${img}" alt="${currentProject.title}" class="img-fluid rounded">
+            </div>
+          `;
+        });
+        
+        // Add description
+        document.getElementById('project-description').innerHTML = currentProject.description;
+        
+        // Add meta info
+        const metaList = document.getElementById('project-meta');
+        for (const [key, value] of Object.entries(currentProject.details)) {
+          metaList.innerHTML += `<li><strong>${key}:</strong> ${value}</li>`;
+        }
+        
+        // Add related projects
+        const relatedContainer = document.getElementById('related-projects');
+        currentProject.related.forEach(relatedId => {
+          const relatedProject = projects.find(p => p.id == relatedId);
+          if (relatedProject) {
+            relatedContainer.innerHTML += `
+              <div class="project-card" data-category="${relatedProject.category.toLowerCase()}">
+                <img src="assets/images/projects/${relatedProject.images[0]}" alt="${relatedProject.title}" class="img-fluid">
+                <div class="project-overlay">
+                  <div class="project-info">
+                    <h3>${relatedProject.title}</h3>
+                    <p>${relatedProject.category}</p>
+                    <a href="project-details.html?id=${relatedProject.id}" class="btn btn-outline-light btn-sm">View Details</a>
+                  </div>
+                </div>
+              </div>
+            `;
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

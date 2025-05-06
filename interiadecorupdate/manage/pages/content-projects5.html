@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Projects - Interia Decor</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+  <style>
+    .project-image-preview {
+      max-width: 100px;
+      max-height: 100px;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .empty-state i {
+      font-size: 48px;
+      color: #adb5bd;
+      margin-bottom: 20px;
+    }
+    .loading-spinner {
+      display: inline-block;
+      width: 1.5rem;
+      height: 1.5rem;
+      vertical-align: middle;
+      border: 0.25em solid currentColor;
+      border-right-color: transparent;
+      border-radius: 50%;
+      animation: spinner-border 0.75s linear infinite;
+    }
+    @keyframes spinner-border {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <div class="admin-sidebar">
+      <div class="sidebar-header">
+        <img src="../../assets/images/logo-white.png" alt="Interia Decor">
+        <h3>Admin Panel</h3>
+      </div>
+      <ul class="sidebar-nav">
+        <li><a href="../dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+        <li>
+          <a href="#content-collapse" data-bs-toggle="collapse">
+            <i class="fas fa-edit"></i> Content <i class="fas fa-chevron-down"></i>
+          </a>
+          <ul class="collapse show" id="content-collapse">
+            <li><a href="content-home.html">Home Page</a></li>
+            <li class="active"><a href="content-projects.html">Projects</a></li>
+            <li><a href="content-testimonials.html">Testimonials</a></li>
+            <li><a href="content-services.html">Services</a></li>
+          </ul>
+        </li>
+        <li><a href="settings-design.html"><i class="fas fa-palette"></i> Design Settings</a></li>
+        <li><a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+      </ul>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="admin-main">
+      <div class="admin-header">
+        <h2>Manage Projects</h2>
+        <div class="user-info">
+          <span>Welcome, Admin</span>
+        </div>
+      </div>
+      
+      <div class="admin-content">
+        <!-- Filter Controls -->
+        <div class="filter-controls mb-3">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="input-group">
+                <input type="text" class="form-control" id="search-projects" 
+                       placeholder="Search projects...">
+                <button class="btn btn-outline-secondary" type="button">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <select class="form-select" id="filter-type">
+                <option value="">All Types</option>
+                <option value="Residential">Residential</option>
+                <option value="Commercial">Commercial</option>
+                <option value="Hospitality">Hospitality</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <select class="form-select" id="sort-projects">
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+                <option value="az">A-Z</option>
+                <option value="za">Z-A</option>
+              </select>
+            </div>
+            <div class="col-md-2 text-end">
+              <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#projectModal">
+                <i class="fas fa-plus"></i> Add New
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Projects Table -->
+        <div class="table-responsive">
+          <table class="table table-hover crud-table" data-endpoint="projects">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Type</th>
+                <th>Location</th>
+                <th>Area</th>
+                <th>Completed</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="projects-table">
+              <tr>
+                <td colspan="8" class="text-center">
+                  <div class="loading-spinner"></div> Loading projects...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Empty State -->
+        <div id="empty-state" class="empty-state" style="display: none;">
+          <i class="fas fa-folder-open"></i>
+          <h3>No Projects Found</h3>
+          <p class="text-muted">Get started by adding your first project</p>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#projectModal">
+            <i class="fas fa-plus"></i> Add Project
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Modal -->
+  <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="projectModalTitle">Add New Project</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="project-form">
+            <input type="hidden" id="project-id" name="id">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="project-title" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="project-title" name="title" required>
+                </div>
+                <div class="mb-3">
+                  <label for="project-type" class="form-label">Type</label>
+                  <select class="form-select" id="project-type" name="type" required>
+                    <option value="">Select Type</option>
+                    <option value="Residential">Residential</option>
+                    <option value="Commercial">Commercial</option>
+                    <option value="Hospitality">Hospitality</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="project-location" class="form-label">Location</label>
+                  <input type="text" class="form-control" id="project-location" name="location">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="project-area" class="form-label">Area (sq ft)</label>
+                  <input type="text" class="form-control" id="project-area" name="area">
+                </div>
+                <div class="mb-3">
+                  <label for="project-completed" class="form-label">Completion Date</label>
+                  <input type="text" class="form-control" id="project-completed" name="completed">
+                </div>
+                <div class="mb-3">
+                  <label for="project-image" class="form-label">Project Image</label>
+                  <input type="file" class="form-control" id="project-image" name="image" accept="image/*">
+                  <div id="image-preview-container" class="mt-2"></div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="project-description" class="form-label">Description</label>
+              <textarea class="form-control" id="project-description" name="description" rows="3"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="save-project-btn">
+            <i class="fas fa-save"></i> Save Project
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirm Delete</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete this project? This action cannot be undone.</p>
+          <p><strong>Project: </strong><span id="delete-project-title"></span></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" id="confirm-delete-btn">
+            <i class="fas fa-trash"></i> Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/admin/auth.js"></script>
+  <script src="../../assets/js/admin/enhanced-crud.js"></script>
+  <script>
+    // Global variables
+    let currentItems = [];
+    let projectToDelete = null;
+    const projectModal = new bootstrap.Modal(document.getElementById('projectModal'));
+    const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+    
+    // Function to render projects table
+    async function loadProjectsTable() {
+      const tableBody = document.getElementById('projects-table');
+      const emptyState = document.getElementById('empty-state');
+      
+      try {
+        // Show loading
+        tableBody.innerHTML = `
+          <tr>
+            <td colspan="8" class="text-center">
+              <div class="loading-spinner"></div> Loading projects...
+            </td>
+          </tr>
+        `;
+        
+        // Get projects
+        const projects = await projectsCRUD.getAll();
+        currentItems = projects;
+        
+        // Apply filters and sorting
+        const filtered = applyFilters(projects);
+        
+        // Show empty state if no projects
+        if (filtered.length === 0) {
+          tableBody.innerHTML = '';
+          emptyState.style.display = 'block';
+          return;
+        }
+        
+        // Hide empty state if we have projects
+        emptyState.style.display = 'none';
+        
+        // Render table rows
+        tableBody.innerHTML = filtered.map(project => `
+          <tr>
+            <td>${project.id || ''}</td>
+            <td>
+              ${project.image ? 
+                `<img src="../../assets/images/projects/${project.image}" alt="${project.title}" class="project-image-preview">` : 
+                '<span class="text-muted">No image</span>'}
+            </td>
+            <td>${project.title || ''}</td>
+            <td><span class="badge bg-${getTypeColor(project.type)}">${project.type || ''}</span></td>
+            <td>${project.location || ''}</td>
+            <td>${project.area || ''}</td>
+            <td>${project.completed || ''}</td>
+            <td class="table-actions">
+              <button class="btn btn-sm btn-outline-primary edit-btn" data-id="${project.id}">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="btn btn-sm btn-outline-danger delete-btn" data-id="${project.id}">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        `).join('');
+        
+        // Add event listeners to action buttons
+        attachActionListeners();
+        
+      } catch (error) {
+        console.error('Error loading projects:', error);
+        tableBody.innerHTML = `
+          <tr>
+            <td colspan="8" class="text-center text-danger">
+              <i class="fas fa-exclamation-circle"></i> Error loading projects
+            </td>
+          </tr>
+        `;
+      }
+    }
+    
+    // Filter and sort projects
+    function applyFilters(projects) {
+      let filtered = [...projects];
+      
+      // Apply type filter
+      const typeFilter = document.getElementById('filter-type').value;
+      if (typeFilter) {
+        filtered = filtered.filter(p => p.type === typeFilter);
+      }
+      
+      // Apply search filter
+      const searchTerm = document.getElementById('search-projects').value.toLowerCase();
+      if (searchTerm) {
+        filtered = filtered.filter(p => 
+          p.title?.toLowerCase().includes(searchTerm) || 
+          p.description?.toLowerCase().includes(searchTerm) ||
+          p.location?.toLowerCase().includes(searchTerm)
+        );
+      }
+      
+      // Apply sorting
+      const sortBy = document.getElementById('sort-projects').value;
+      switch(sortBy) {
+        case 'newest':
+          filtered.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+          break;
+        case 'oldest':
+          filtered.sort((a, b) => new Date(a.createdAt || 0) - new Date(b.createdAt || 0));
+          break;
+        case 'az':
+          filtered.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+          break;
+        case 'za':
+          filtered.sort((a, b) => (b.title || '').localeCompare(a.title || ''));
+          break;
+      }
+      
+      return filtered;
+    }
+    
+    // Get badge color based on project type
+    function getTypeColor(type) {
+      switch(type) {
+        case 'Residential': return 'success';
+        case 'Commercial': return 'primary';
+        case 'Hospitality': return 'warning';
+        default: return 'secondary';
+      }
+    }
+    
+    // Attach event listeners to table action buttons
+    function attachActionListeners() {
+      // Edit buttons
+      document.querySelectorAll('.edit-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const projectId = this.getAttribute('data-id');
+          editProject(projectId);
+        });
+      });
+      
+      // Delete buttons
+      document.querySelectorAll('.

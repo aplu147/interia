@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Settings - Interia Decor</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+  <style>
+    .color-preview {
+      width: 30px;
+      height: 30px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-right: 10px;
+      vertical-align: middle;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar (same as dashboard.html) -->
+    <div class="admin-sidebar">
+      <div class="sidebar-header">
+        <img src="../../assets/images/logo-white.png" alt="Interia Decor">
+        <h3>Admin Panel</h3>
+      </div>
+      <ul class="sidebar-nav">
+        <li><a href="../dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+        <li>
+          <a href="#content-collapse" data-bs-toggle="collapse">
+            <i class="fas fa-edit"></i> Content <i class="fas fa-chevron-down"></i>
+          </a>
+          <ul class="collapse" id="content-collapse">
+            <li><a href="content-home.html">Home Page</a></li>
+            <li><a href="content-projects.html">Projects</a></li>
+            <li><a href="content-testimonials.html">Testimonials</a></li>
+            <li><a href="content-services.html">Services</a></li>
+          </ul>
+        </li>
+        <li class="active"><a href="settings-design.html"><i class="fas fa-palette"></i> Design Settings</a></li>
+        <li><a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+      </ul>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="admin-main">
+      <div class="admin-header">
+        <h2>Design Settings</h2>
+        <div class="user-info">
+          <span>Welcome, Admin</span>
+        </div>
+      </div>
+      
+      <div class="admin-content">
+        <div class="form-card">
+          <h3>Color Scheme</h3>
+          <form id="color-form">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="primary-color" class="form-label">Primary Color</label>
+                  <div class="input-group">
+                    <span class="color-preview" id="primary-preview"></span>
+                    <input type="color" class="form-control form-control-color" id="primary-color" 
+                           name="primary" value="#0C4B62" data-color="primary">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="secondary-color" class="form-label">Secondary Color</label>
+                  <div class="input-group">
+                    <span class="color-preview" id="secondary-preview"></span>
+                    <input type="color" class="form-control form-control-color" id="secondary-color" 
+                           name="secondary" value="#529A44" data-color="secondary">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="accent-color" class="form-label">Accent Color</label>
+                  <div class="input-group">
+                    <span class="color-preview" id="accent-preview"></span>
+                    <input type="color" class="form-control form-control-color" id="accent-color" 
+                           name="accent" value="#E77624" data-color="accent">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="background-color" class="form-label">Background Color</label>
+                  <div class="input-group">
+                    <span class="color-preview" id="background-preview"></span>
+                    <input type="color" class="form-control form-control-color" id="background-color" 
+                           name="background" value="#D5EEEF" data-color="background">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Colors</button>
+          </form>
+        </div>
+        
+        <div class="form-card mt-4">
+          <h3>Typography</h3>
+          <form id="typography-form">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="primary-font" class="form-label">Primary Font</label>
+                  <select class="form-select" id="primary-font" name="primaryFont">
+                    <option value="Poppins">Poppins</option>
+                    <option value="Montserrat">Montserrat</option>
+                    <option value="Open Sans">Open Sans</option>
+                    <option value="Roboto">Roboto</option>
+                    <option value="Playfair Display">Playfair Display</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="secondary-font" class="form-label">Secondary Font</label>
+                  <select class="form-select" id="secondary-font" name="secondaryFont">
+                    <option value="Poppins">Poppins</option>
+                    <option value="Montserrat">Montserrat</option>
+                    <option value="Open Sans" selected>Open Sans</option>
+                    <option value="Roboto">Roboto</option>
+                    <option value="Playfair Display">Playfair Display</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Typography</button>
+          </form>
+        </div>
+        
+        <div class="form-card mt-4">
+          <h3>Logo Settings</h3>
+          <form id="logo-form">
+            <div class="form-group">
+              <label for="logo-image" class="form-label">Logo Image</label>
+              <input type="file" class="form-control" id="logo-image" name="logo" accept="image/*">
+              <small class="text-muted">Recommended size: 200x60px (transparent PNG)</small>
+            </div>
+            <div class="form-group">
+              <label for="logo-width" class="form-label">Logo Width (px)</label>
+              <input type="number" class="form-control" id="logo-width" name="logoWidth" value="200">
+            </div>
+            <button type="submit" class="btn btn-primary">Update Logo</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/admin/auth.js"></script>
+  <script src="../../assets/js/admin/settings.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      // Load current settings
+      const { colors } = await settingsManager.load();
+      
+      // Initialize color pickers
+      if (colors) {
+        Object.entries(colors).forEach(([key, value]) => {
+          const input = document.querySelector(`input[name="${key}"]`);
+          const preview = document.getElementById(`${key}-preview`);
+          
+          if (input && preview) {
+            input.value = value;
+            preview.style.backgroundColor = value;
+          }
+        });
+      }
+      
+      // Color form submission
+      document.getElementById('color-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const colors = Object.fromEntries(formData.entries());
+        
+        const success = await settingsManager.saveColors(colors);
+        if (success) {
+          showAlert('Color scheme updated successfully!', 'success');
+        } else {
+          showAlert('Failed to update color scheme', 'error');
+        }
+      });
+      
+      // Typography form submission
+      document.getElementById('typography-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const settings = Object.fromEntries(formData.entries());
+        
+        const success = await settingsManager.saveSettings({ typography: settings });
+        if (success) {
+          showAlert('Typography settings saved!', 'success');
+        } else {
+          showAlert('Failed to save typography settings', 'error');
+        }
+      });
+      
+      // Logo form submission
+      document.getElementById('logo-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const settings = Object.fromEntries(formData.entries());
+        
+        const success = await settingsManager.saveSettings({ logo: settings });
+        if (success) {
+          showAlert('Logo settings updated!', 'success');
+        } else {
+          showAlert('Failed to update logo settings', 'error');
+        }
+      });
+      
+      // Update color previews when color inputs change
+      document.querySelectorAll('input[type="color"]').forEach(input => {
+        input.addEventListener('input', function() {
+          const previewId = `${this.getAttribute('data-color')}-preview`;
+          const preview = document.getElementById(previewId);
+          if (preview) {
+            preview.style.backgroundColor = this.value;
+          }
+        });
+      });
+    });
+    
+    function showAlert(message, type) {
+      const alertDiv = document.createElement('div');
+      alertDiv.className = `alert alert-${type} fixed-alert`;
+      alertDiv.textContent = message;
+      
+      document.body.appendChild(alertDiv);
+      
+      setTimeout(() => {
+        alertDiv.classList.add('fade-out');
+        setTimeout(() => alertDiv.remove(), 500);
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

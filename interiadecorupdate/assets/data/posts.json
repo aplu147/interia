@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "title": "10 Trends in Modern Interior Design",
+        "slug": "10-trends-in-modern-interior-design",
+        "author": "Emily Richardson",
+        "content": "Modern interior design is constantly evolving...",
+        "categories": ["Design", "Trends"],
+        "date": "2023-06-15",
+        "status": "published",
+        "featuredImage": "images/posts/post1.jpg"
+    },
+    {
+        "id": 2,
+        "title": "How to Choose the Right Color Palette",
+        "slug": "how-to-choose-the-right-color-palette",
+        "author": "David Chen",
+        "content": "Selecting the perfect color palette can transform your space...",
+        "categories": ["Colors", "Tips"],
+        "date": "2023-06-10",
+        "status": "published",
+        "featuredImage": "images/posts/post2.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Small Space Solutions for Urban Living",
+        "slug": "small-space-solutions-for-urban-living",
+        "author": "Sarah Johnson",
+        "content": "Living in a small space doesn't mean sacrificing style...",
+        "categories": ["Space Planning", "Residential"],
+        "date": "2023-06-05",
+        "status": "published",
+        "featuredImage": "images/posts/post3.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Interview with Award-Winning Designer",
+        "slug": "interview-with-award-winning-designer",
+        "author": "Emily Richardson",
+        "content": "We sat down with renowned designer to discuss...",
+        "categories": ["Interview", "Design"],
+        "date": "2023-05-28",
+        "status": "published",
+        "featuredImage": "images/posts/post4.jpg"
+    },
+    {
+        "id": 5,
+        "title": "Office Design for Productivity",
+        "slug": "office-design-for-productivity",
+        "author": "Michael Wilson",
+        "content": "A well-designed office can significantly boost...",
+        "categories": ["Commercial", "Office"],
+        "date": "2023-05-20",
+        "status": "draft",
+        "featuredImage": "images/posts/post5.jpg"
+    }
+]

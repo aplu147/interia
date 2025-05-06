@@ -1,0 +1,17 @@
+[
+  {
+    "name": "John Doe",
+    "position": "Lead Designer",
+    "image": "john.jpg",
+    "bio": "With 10 years of experience in interior design, John specializes in modern residential spaces.",
+    "facebook": "https://facebook.com/johndoe",
+    "linkedin": "https://linkedin.com/in/johndoe"
+  },
+  {
+    "name": "Jane Smith",
+    "position": "Project Manager",
+    "image": "jane.jpg",
+    "bio": "Jane ensures every project is completed on time and to the highest standards.",
+    "linkedin": "https://linkedin.com/in/janesmith"
+  }
+]

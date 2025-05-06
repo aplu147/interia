@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Posts - Interia Decor Admin</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/admin.css">
+</head>
+<body class="admin-body">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>Interia Decor</h3>
+            <p>Admin Panel</p>
+			<!-- In your admin navbar -->
+           <a href="login.html" data-logout="true" class="nav-link">
+             <i class="fas fa-sign-out-alt me-2"></i>Logout
+           </a>
+        </div>
+		
+        <ul class="sidebar-menu">
+            <li>
+                <a href="../index.html">
+                    <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                </a>
+            </li>
+            <li class="active">
+                <a href="manage-posts.html">
+                    <i class="fas fa-newspaper me-2"></i>Manage Posts
+                </a>
+            </li>
+            <li>
+                <a href="manage-projects.html">
+                    <i class="fas fa-project-diagram me-2"></i>Manage Projects
+                </a>
+            </li>
+            <li>
+                <a href="manage-team.html">
+                    <i class="fas fa-users me-2"></i>Manage Team
+                </a>
+            </li>
+            <li>
+                <a href="../settings.html">
+                    <i class="fas fa-cog me-2"></i>Settings
+                </a>
+            </li>
+            <li>
+                <a href="../../login.html">
+                    <i class="fas fa-sign-out-alt me-2"></i>Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <nav class="navbar navbar-expand top-navbar">
+            <div class="container-fluid">
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge bg-danger">3</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><h6 class="dropdown-header">Notifications</h6></li>
+                            <li><a class="dropdown-item" href="#">New contact form submission</a></li>
+                            <li><a class="dropdown-item" href="#">Project approval needed</a></li>
+                            <li><a class="dropdown-item" href="#">System update available</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">View all notifications</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <img src="../../images/admin-avatar.jpg" class="rounded-circle" width="30" alt="Admin">
+                            <span class="ms-2">Admin User</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../../login.html"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div class="page-content">
+            <div class="container-fluid">
+                <div class="page-header mb-4">
+                    <h1>Manage Posts</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Manage Posts</li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <!-- Add New Post Button -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPostModal">
+                            <i class="fas fa-plus me-2"></i>Add New Post
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Posts Table -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">All Posts</h3>
+                                <div class="card-tools">
+                                    <div class="input-group input-group-sm">
+                                        <input type="text" class="form-control" placeholder="Search posts...">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover" id="postsTable">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Title</th>
+                                                <th>Author</th>
+                                                <th>Categories</th>
+                                                <th>Date</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>10 Trends in Modern Interior Design</td>
+                                                <td>Emily Richardson</td>
+                                                <td>Design, Trends</td>
+                                                <td>2023-06-15</td>
+                                                <td><span class="badge bg-success">Published</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary">View</button>
+                                                    <button class="btn btn-sm btn-outline-warning">Edit</button>
+                                                    <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>How to Choose the Right Color Palette</td>
+                                                <td>David Chen</td>
+                                                <td>Colors, Tips</td>
+                                                <td>2023-06-10</td>
+                                                <td><span class="badge bg-success">Published</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary">View</button>
+                                                    <button class="btn btn-sm btn-outline-warning">Edit</button>
+                                                    <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Small Space Solutions for Urban Living</td>
+                                                <td>Sarah Johnson</td>
+                                                <td>Space Planning, Residential</td>
+                                                <td>2023-06-05</td>
+                                                <td><span class="badge bg-success">Published</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary">View</button>
+                                                    <button class="btn btn-sm btn-outline-warning">Edit</button>
+                                                    <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Interview with Award-Winning Designer</td>
+                                                <td>Emily Richardson</td>
+                                                <td>Interview, Design</td>
+                                                <td>2023-05-28</td>
+                                                <td><span class="badge bg-success">Published</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary">View</button>
+                                                    <button class="btn btn-sm btn-outline-warning">Edit</button>
+                                                    <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>Office Design for Productivity</td>
+                                                <td>Michael Wilson</td>
+                                                <td>Commercial, Office</td>
+                                                <td>2023-05-20</td>
+                                                <td><span class="badge bg-warning">Draft</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary">View</button>
+                                                    <button class="btn btn-sm btn-outline-warning">Edit</button>
+                                                    <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination justify-content-center">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Post Modal -->
+    <div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="addPostModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addPostModalLabel">Add New Post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="postForm">
+                        <div class="mb-3">
+                            <label for="postTitle" class="form-label">Post Title</label>
+                            <input type="text" class="form-control" id="postTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="postSlug" class="form-label">Post Slug</label>
+                            <input type="text" class="form-control" id="postSlug">
+                        </div>
+                        <div class="mb-3">
+                            <label for="postContent" class="form-label">Content</label>
+                            <textarea class="form-control" id="postContent" rows="10"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="postAuthor" class="form-label">Author</label>
+                                <select class="form-select" id="postAuthor">
+                                    <option selected>Select Author</option>
+                                    <option>Emily Richardson</option>
+                                    <option>David Chen</option>
+                                    <option>Sarah Johnson</option>
+                                    <option>Michael Wilson</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="postStatus" class="form-label">Status</label>
+                                <select class="form-select" id="postStatus">
+                                    <option value="draft">Draft</option>
+                                    <option value="published">Published</option>
+                                    <option value="archived">Archived</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="postCategories" class="form-label">Categories</label>
+                            <select class="form-select" id="postCategories" multiple>
+                                <option>Design</option>
+                                <option>Trends</option>
+                                <option>Colors</option>
+                                <option>Tips</option>
+                                <option>Residential</option>
+                                <option>Commercial</option>
+                                <option>Office</option>
+                                <option>Interview</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="postFeaturedImage" class="form-label">Featured Image</label>
+                            <input class="form-control" type="file" id="postFeaturedImage">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../../js/admin/crud.js"></script>
+	<script src="../js/admin/auth.js"></script>
+</body>
+</html>

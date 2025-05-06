@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Luxe Interior Admin</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-body">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>LUXE INTERIOR</h3>
+            <p>Admin Panel</p>
+        </div>
+        <ul class="sidebar-menu">
+            <li>
+                <a href="index.html">
+                    <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="pages/manage-posts.html">
+                    <i class="fas fa-newspaper me-2"></i>Manage Posts
+                </a>
+            </li>
+            <li>
+                <a href="pages/manage-projects.html">
+                    <i class="fas fa-project-diagram me-2"></i>Manage Projects
+                </a>
+            </li>
+            <li>
+                <a href="pages/manage-team.html">
+                    <i class="fas fa-users me-2"></i>Manage Team
+                </a>
+            </li>
+            <li class="active">
+                <a href="settings.html">
+                    <i class="fas fa-cog me-2"></i>Settings
+                </a>
+            </li>
+            <li>
+                <a href="../login.html">
+                    <i class="fas fa-sign-out-alt me-2"></i>Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <nav class="navbar navbar-expand top-navbar">
+            <div class="container-fluid">
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge bg-danger">3</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><h6 class="dropdown-header">Notifications</h6></li>
+                            <li><a class="dropdown-item" href="#">New contact form submission</a></li>
+                            <li><a class="dropdown-item" href="#">Project approval needed</a></li>
+                            <li><a class="dropdown-item" href="#">System update available</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">View all notifications</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <img src="../images/admin-avatar.jpg" class="rounded-circle" width="30" alt="Admin">
+                            <span class="ms-2">Admin User</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../login.html"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div class="page-content">
+            <div class="container-fluid">
+                <div class="page-header mb-4">
+                    <h1>Settings</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Settings</li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="settings-menu">
+                            <div class="list-group">
+                                <a href="#general" class="list-group-item list-group-item-action active" data-bs-toggle="tab">
+                                    <i class="fas fa-cog me-2"></i>General Settings
+                                </a>
+                                <a href="#website" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                                    <i class="fas fa-globe me-2"></i>Website Settings
+                                </a>
+                                <a href="#seo" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                                    <i class="fas fa-search me-2"></i>SEO Settings
+                                </a>
+                                <a href="#email" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                                    <i class="fas fa-envelope me-2"></i>Email Settings
+                                </a>
+                                <a href="#social" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                                    <i class="fas fa-share-alt me-2"></i>Social Media
+                                </a>
+                                <a href="#backup" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                                    <i class="fas fa-database me-2"></i>Backup & Restore
+                                </a>
+                                <a href="#security" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                                    <i class="fas fa-shield-alt me-2"></i>Security
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="tab-content">
+                            <!-- General Settings Tab -->
+                            <div class="tab-pane fade show active" id="general">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">General Settings</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <form id="generalSettingsForm">
+                                            <div class="mb-3">
+                                                <label for="siteTitle" class="form-label">Site Title</label>
+                                                <input type="text" class="form-control" id="siteTitle" value="Luxe Interior">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="siteTagline" class="form-label">Tagline</label>
+                                                <input type="text" class="form-control" id="siteTagline" value="Premium Interior Design">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="adminEmail" class="form-label">Admin Email</label>
+                                                <input type="email" class="form-control" id="adminEmail" value="admin@luxeinterior.com">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="timezone" class="form-label">Timezone</label>
+                                                <select class="form-select" id="timezone">
+                                                    <option value="UTC">UTC</option>
+                                                    <option value="America/New_York" selected>America/New York</option>
+                                                    <option value="America/Chicago">America/Chicago</option>
+                                                    <option value="America/Denver">America/Denver</option>
+                                                    <option value="America/Los_Angeles">America/Los Angeles</option>
+                                                    <option value="Europe/London">Europe/London</option>
+                                                    <option value="Europe/Paris">Europe/Paris</option>
+                                                    <option value="Asia/Tokyo">Asia/Tokyo</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="dateFormat" class="form-label">Date Format</label>
+                                                <select class="form-select" id="dateFormat">
+                                                    <option value="F j, Y">F j, Y (June 15, 2023)</option>
+                                                    <option value="Y-m-d" selected>Y-m-d (2023-06-15)</option>
+                                                    <option value="m/d/Y">m/d/Y (06/15/2023)</option>
+                                                    <option value="d/m/Y">d/m/Y (15/06/2023)</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="timeFormat" class="form-label">Time Format</label>
+                                                <select class="form-select" id="timeFormat">
+                                                    <option value="g:i a">g:i a (9:30 am)</option>
+                                                    <option value="g:i A" selected>g:i A (9:30 AM)</option>
+                                                    <option value="H:i">H:i (09:30)</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3 form-check">
+                                                <input type="checkbox" class="form-check-input" id="maintenanceMode">
+                                                <label class="form-check-label" for="maintenanceMode">Enable Maintenance Mode</label>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Website Settings Tab -->
+                            <div class="tab-pane fade" id="website">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Website Settings</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <form id="websiteSettingsForm">
+                                            <div class="mb-3">
+                                                <label for="logoUpload" class="form-label">Logo</label>
+                                                <input class="form-control" type="file" id="logoUpload">
+                                                <small class="text-muted">Recommended size: 200x50 pixels</small>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="faviconUpload" class="form-label">Favicon</label>
+                                                <input class="form-control" type="file" id="faviconUpload">
+                                                <small class="text-muted">Recommended size: 32x32 pixels</small>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="primaryColor" class="form-label">Primary Color</label>
+                                                <input type="color" class="form-control form-control-color" id="primaryColor" value="#0d6efd" title="Choose your color">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="secondaryColor" class="form-label">Secondary Color</label>
+                                                <input type="color" class="form-control form-control-color" id="secondaryColor" value="#6c757d" title="Choose your color">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="homepageLayout" class="form-label">Homepage Layout</label>
+                                                <select class="form-select" id="homepageLayout">
+                                                    <option value="default" selected>Default Layout</option>
+                                                    <option value="alternative">Alternative Layout</option>
+                                                    <option value="minimal">Minimal Layout</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="customCSS" class="form-label">Custom CSS</label>
+                                                <textarea class="form-control" id="customCSS" rows="5"></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SEO Settings Tab -->
+                            <div class="tab-pane fade" id="seo">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">SEO Settings</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <form id="seoSettingsForm">
+                                            <div class="mb-3">
+                                                <label for="metaTitle" class="form-label">Meta Title</label>
+                                                <input type="text" class="form-control" id="metaTitle" value="Luxe Interior - Premium Interior Design">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="metaDescription" class="form-label">Meta Description</label>
+                                                <textarea class="form-control" id="metaDescription" rows="3">Luxe Interior creates elegant and functional interior designs for residential and commercial spaces. Our award-winning team transforms your vision into reality.</textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="metaKeywords" class="form-label">Meta Keywords</label>
+                                                <input type="text" class="form-control" id="metaKeywords" value="interior design, luxury interiors, home design, office design, commercial interiors">
+                                                <small class="text-muted">Separate keywords with commas</small>
+                                            </div>
+                                            <div class="mb-3 form-check">
+                                                <input type="checkbox" class="form-check-input" id="enableSitemap" checked>
+                                                <label class="form-check-label" for="enableSitemap">Enable XML Sitemap</label>
+                                            </div>
+                                            <div class="mb-3 form-check">
+                                                <input type="checkbox" class="form-check-input" id="enableRobots" checked>
+                                                <label class="form-check-label" for="enableRobots">Enable Robots.txt</label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="googleAnalytics" class="form-label">Google Analytics Code</label>
+                                                <textarea class="form-control" id="googleAnalytics" rows="5" placeholder="Paste your Google Analytics tracking code here"></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Email Settings Tab -->
+                            <div class="tab-pane fade" id="email">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Email Settings</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <form id="emailSettingsForm">
+                                            <div class="mb-3">
+                                                <label for="emailFrom" class="form-label">From Email</label>
+                                                <input type="email" class="form-control" id="emailFrom" value="noreply@luxeinterior.com">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="emailFromName" class="form-label">From Name</label>
+                                                <input type="text" class="form-control" id="emailFromName" value="Luxe Interior">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="emailProtocol" class="form-label">Email Protocol</label>
+                                                <select class="form-select" id="emailProtocol">
+                                                    <option value="mail">PHP Mail</option>
+                                                    <option value="smtp" selected>SMTP</option>
+                                                    <option value="sendmail">Sendmail</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="smtpHost" class="form-label">SMTP Host</label>
+                                                <input type="text" class="form-control" id="smtpHost" value="smtp.example.com">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="smtpPort" class="form-label">SMTP Port</label>
+                                                <input type="number" class="form-control" id="smtpPort" value="587">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="smtpUsername" class="form-label">SMTP Username</label>
+                                                <input type="text" class="form-control" id="smtpUsername" value="your_email@example.com">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="smtpPassword" class="form-label">SMTP Password</label>
+                                                <input type="password" class="form-control" id="smtpPassword" value="********">
+                                            </div>
+                                            <div class="mb-3 form-check">
+                                                <input type="checkbox" class="form-check-input" id="smtpSecure" checked>
+                                                <label class="form-check-label" for="smtpSecure">Use Secure Connection (TLS)</label>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Social Media Tab -->
+                            <div class="tab-pane fade" id="social">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Social Media</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <form id="socialSettingsForm">
+                                            <div class="mb-3">
+                                                <label for="facebookUrl" class="form-label">Facebook URL</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fab fa-facebook-f"></i></span>
+                                                    <input type="url" class="form-control" id="facebookUrl" placeholder="https://facebook.com/yourpage">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="twitterUrl" class="form-label">Twitter URL</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fab fa-twitter"></i></span>
+                                                    <input type="url" class="form-control" id="twitterUrl" placeholder="https://twitter.com/yourhandle">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="instagramUrl" class="form-label">Instagram URL</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fab fa-instagram"></i></span>
+                                                    <input type="url" class="form-control" id="instagramUrl" placeholder="https://instagram.com/yourprofile">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="linkedinUrl" class="form-label">LinkedIn URL</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fab fa-linkedin-in"></i></span>
+                                                    <input type="url" class="form-control" id="linkedinUrl" placeholder="https://linkedin.com/company/yourcompany">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="pinterestUrl" class="form-label">Pinterest URL</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fab fa-pinterest-p"></i></span>
+                                                    <input type="url" class="form-control" id="pinterestUrl" placeholder="https://pinterest.com/yourprofile">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="youtubeUrl" class="form-label">YouTube URL</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fab fa-youtube"></i></span>
+                                                    <input type="url" class="form-control" id="youtubeUrl" placeholder="https://youtube.com/yourchannel">
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Backup & Restore Tab -->
+                            <div class="tab-pane fade" id="backup">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Backup & Restore</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="alert alert-warning">
+                                            <i class="fas fa-exclamation-triangle me-2"></i>
+                                            <strong>Warning:</strong> Always backup your database before making major changes.
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-4">
+                                                <div class="card h-100">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Create Backup</h4>
+                                                    </div>
+                                                    <div class="card-body text-center">
+                                                        <i class="fas fa-database fa-4x mb-3 text-primary"></i>
+                                                        <p class="card-text">Create a complete backup of your website database.</p>
+                                                        <button class="btn btn-primary">Backup Database</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-4">
+                                                <div class="card h-100">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Restore Backup</h4>
+                                                    </div>
+                                                    <div class="card-body text-center">
+                                                        <i class="fas fa-upload fa-4x mb-3 text-success"></i>
+                                                        <p class="card-text">Restore your website from a previous backup.</p>
+                                                        <input type="file" class="form-control mb-2">
+                                                        <button class="btn btn-success">Restore Database</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Recent Backups</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Backup Date</th>
+                                                                <th>File Name</th>
+                                                                <th>Size</th>
+                                                                <th>Actions</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>2023-06-15 14:30</td>
+                                                                <td>backup_20230615.sql</td>
+                                                                <td>2.5 MB</td>
+                                                                <td>
+                                                                    <button class="btn btn-sm btn-outline-primary">Download</button>
+                                                                    <button class="btn btn-sm btn-outline-success">Restore</button>
+                                                                    <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2023-06-10 09:15</td>
+                                                                <td>backup_20230610.sql</td>
+                                                                <td>2.4 MB</td>
+                                                                <td>
+                                                                    <button class="btn btn-sm btn-outline-primary">Download</button>
+                                                                    <button class="btn btn-sm btn-outline-success">Restore</button>
+                                                                    <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2023-06-01 18:45</td>
+                                                                <td>backup_20230601.sql</td>
+                                                                <td>2.3 MB</td>
+                                                                <td>
+                                                                    <button class="btn btn-sm btn-outline-primary">Download</button>
+                                                                    <button class="btn btn-sm btn-outline-success">Restore</button>
+                                                                    <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Security Tab -->
+                            <div class="tab-pane fade" id="security">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Security Settings</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <form id="securitySettingsForm">
+                                            <div class="mb-3">
+                                                <label for="adminPath" class="form-label">Admin Path</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text">/</span>
+                                                    <input type="text" class="form-control" id="adminPath" value="admin">
+                                                </div>
+                                                <small class="text-muted">Change the admin URL path for security (e.g., 'my-secret-admin')</small>
+                                            </div>
+                                            <div class="mb-3 form-check">
+                                                <input type="checkbox" class="form-check-input" id="forceHttps">
+                                                <label class="form-check-label" for="forceHttps">Force HTTPS</label>
+                                            </div>
+                                            <div class="mb-3 form-check">
+                                                <input type="checkbox" class="form-check-input" id="enable2fa" checked>
+                                                <label class="form-check-label" for="enable2fa">Enable Two-Factor Authentication</label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="loginAttempts" class="form-label">Max Login Attempts</label>
+                                                <input type="number" class="form-control" id="loginAttempts" value="5" min="1">
+                                                <small class="text-muted">Number of failed login attempts before lockout</small>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="lockoutTime" class="form-label">Lockout Time (minutes)</label>
+                                                <input type="number" class="form-control" id="lockoutTime" value="30" min="1">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="ipWhitelist" class="form-label">IP Whitelist</label>
+                                                <textarea class="form-control" id="ipWhitelist" rows="3" placeholder="Enter allowed IP addresses, one per line"></textarea>
+                                                <small class="text-muted">Leave empty to allow access from any IP</small>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/admin/dashboard.js"></script>
+	<script src="../js/admin/auth.js"></script>
+</body>
+</html>

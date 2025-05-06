@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Team - Interia Decor Admin</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/admin.css">
+</head>
+<body class="admin-body">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>Interia decor</h3>
+            <p>Admin Panel</p>
+			<!-- In your admin navbar -->
+           <a href="login.html" data-logout="true" class="nav-link">
+             <i class="fas fa-sign-out-alt me-2"></i>Logout
+           </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li>
+                <a href="../index.html">
+                    <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="manage-posts.html">
+                    <i class="fas fa-newspaper me-2"></i>Manage Posts
+                </a>
+            </li>
+            <li>
+                <a href="manage-projects.html">
+                    <i class="fas fa-project-diagram me-2"></i>Manage Projects
+                </a>
+            </li>
+            <li class="active">
+                <a href="manage-team.html">
+                    <i class="fas fa-users me-2"></i>Manage Team
+                </a>
+            </li>
+            <li>
+                <a href="../settings.html">
+                    <i class="fas fa-cog me-2"></i>Settings
+                </a>
+            </li>
+            <li>
+                <a href="../../login.html">
+                    <i class="fas fa-sign-out-alt me-2"></i>Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <nav class="navbar navbar-expand top-navbar">
+            <div class="container-fluid">
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge bg-danger">3</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><h6 class="dropdown-header">Notifications</h6></li>
+                            <li><a class="dropdown-item" href="#">New contact form submission</a></li>
+                            <li><a class="dropdown-item" href="#">Project approval needed</a></li>
+                            <li><a class="dropdown-item" href="#">System update available</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">View all notifications</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <img src="../../images/admin-avatar.jpg" class="rounded-circle" width="30" alt="Admin">
+                            <span class="ms-2">Admin User</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../../login.html"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div class="page-content">
+            <div class="container-fluid">
+                <div class="page-header mb-4">
+                    <h1>Manage Team</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Manage Team</li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <!-- Add New Member Button -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMemberModal">
+                            <i class="fas fa-plus me-2"></i>Add New Member
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Team Table -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Team Members</h3>
+                                <div class="card-tools">
+                                    <div class="input-group input-group-sm">
+                                        <input type="text" class="form-control" placeholder="Search members...">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover" id="postsTable">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Photo</th>
+                                                <th>Name</th>
+                                                <th>Position</th>
+                                                <th>Email</th>
+                                                <th>Phone</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>
+                                                    <img src="../../images/team1.jpg" class="rounded-circle" width="40" alt="Team Member">
+                                                </td>
+                                                <td>Emily Richardson</td>
+                                                <td>Lead Designer</td>
+                                                <td>emily@luxeinterior.com</td>
+                                                <td>(555) 123-4567</td>
+                                                <td><span class="badge bg-success">Active</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary">View</button>
+                                                    <button class="btn btn-sm btn-outline-warning">Edit</button>
+                                                    <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>
+                                                    <img src="../../images/team2.jpg" class="rounded-circle" width="40" alt="Team Member">
+                                                </td>
+                                                <td>David Chen</td>
+                                                <td>Senior Architect</td>
+                                                <td>david@luxeinterior.com</td>
+                                                <td>(555) 234-5678</td>
+                                                <td><span class="badge bg-success">Active</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary">View</button>
+                                                    <button class="btn btn-sm btn-outline-warning">Edit</button>
+                                                    <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>
+                                                    <img src="../../images/team3.jpg" class="rounded-circle" width="40" alt="Team Member">
+                                                </td>
+                                                <td>Sarah Johnson</td>
+                                                <td>Project Manager</td>
+                                                <td>sarah@luxeinterior.com</td>
+                                                <td>(555) 345-6789</td>
+                                                <td><span class="badge bg-success">Active</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary">View</button>
+                                                    <button class="btn btn-sm btn-outline-warning">Edit</button>
+                                                    <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>
+                                                    <img src="../../images/team4.jpg" class="rounded-circle" width="40" alt="Team Member">
+                                                </td>
+                                                <td>Michael Wilson</td>
+                                                <td>Junior Designer</td>
+                                                <td>michael@luxeinterior.com</td>
+                                                <td>(555) 456-7890</td>
+                                                <td><span class="badge bg-success">Active</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary">View</button>
+                                                    <button class="btn btn-sm btn-outline-warning">Edit</button>
+                                                    <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>
+                                                    <img src="../../images/team5.jpg" class="rounded-circle" width="40" alt="Team Member">
+                                                </td>
+                                                <td>Jessica Lee</td>
+                                                <td>Interior Decorator</td>
+                                                <td>jessica@luxeinterior.com</td>
+                                                <td>(555) 567-8901</td>
+                                                <td><span class="badge bg-warning">On Leave</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary">View</button>
+                                                    <button class="btn btn-sm btn-outline-warning">Edit</button>
+                                                    <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination justify-content-center">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Member Modal -->
+    <div class="modal fade" id="addMemberModal" tabindex="-1" aria-labelledby="addMemberModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addMemberModalLabel">Add New Team Member</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="memberForm">
+                        <div class="mb-3">
+                            <label for="memberPhoto" class="form-label">Photo</label>
+                            <input class="form-control" type="file" id="memberPhoto">
+                        </div>
+                        <div class="mb-3">
+                            <label for="memberName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="memberName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="memberPosition" class="form-label">Position</label>
+                            <input type="text" class="form-control" id="memberPosition" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="memberEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="memberEmail" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="memberPhone" class="form-label">Phone</label>
+                                <input type="tel" class="form-control" id="memberPhone">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="memberBio" class="form-label">Bio</label>
+                            <textarea class="form-control" id="memberBio" rows="3"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="memberStatus" class="form-label">Status</label>
+                                <select class="form-select" id="memberStatus" required>
+                                    <option value="active">Active</option>
+                                    <option value="inactive">Inactive</option>
+                                    <option value="on-leave">On Leave</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="memberJoinDate" class="form-label">Join Date</label>
+                                <input type="date" class="form-control" id="memberJoinDate" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Social Media</label>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text"><i class="fab fa-facebook-f"></i></span>
+                                <input type="text" class="form-control" placeholder="Facebook URL">
+                            </div>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text"><i class="fab fa-twitter"></i></span>
+                                <input type="text" class="form-control" placeholder="Twitter URL">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fab fa-linkedin-in"></i></span>
+                                <input type="text" class="form-control" placeholder="LinkedIn URL">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save Member</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../../js/admin/crud.js"></script>
+	<script src="../js/admin/auth.js"></script>
+</body>
+</html>

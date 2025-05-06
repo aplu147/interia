@@ -1,0 +1,53 @@
+[
+  {
+    "title": "Modern Apartment",
+    "type": "Residential",
+    "location": "Sylhet",
+    "area": "1800 sq ft",
+    "completed": "March 2023",
+    "image": "project1.jpg",
+    "description": "A contemporary apartment design with open spaces and modern furnishings."
+  },
+  {
+    "title": "Corporate Office",
+    "type": "Commercial",
+    "location": "Dhaka",
+    "area": "5000 sq ft",
+    "completed": "January 2023",
+    "image": "project2.jpg",
+    "description": "Professional office space designed for productivity and brand image."
+  }
+]
+[
+  {
+    "id": 1,
+    "title": "Modern Villa",
+    "type": "Residential",
+    "location": "Sylhet",
+    "area": "2500 sq ft",
+    "completed": "March 2023",
+    "image": "project1.jpg",
+    "description": "Contemporary villa design with open spaces..."
+  },
+  {
+    "id": 2,
+    "title": "Corporate Office",
+    "type": "Commercial",
+    "location": "Dhaka",
+    "area": "5000 sq ft",
+    "completed": "January 2023",
+    "image": "project2.jpg",
+    "description": "Professional workspace with brand identity..."
+  },
+  {
+    "id": 3,
+    "title": "Boutique Hotel",
+    "type": "Hospitality",
+    "location": "Cox's Bazar",
+    "area": "10000 sq ft",
+    "completed": "December 2022",
+    "image": "project3.jpg",
+    "description": "Luxury boutique hotel with coastal influences..."
+  }
+  // Add as many as you need
+]

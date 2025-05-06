@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Residential Design",
+    "description": "Complete home interior solutions tailored to your lifestyle.",
+    "icon": "fas fa-home"
+  },
+  {
+    "title": "Commercial Design",
+    "description": "Professional spaces that enhance productivity and brand image.",
+    "icon": "fas fa-building"
+  },
+  {
+    "title": "Furniture Design",
+    "description": "Custom furniture pieces crafted to your exact specifications.",
+    "icon": "fas fa-couch"
+  }
+]

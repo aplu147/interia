@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interia Decor - Premium Interior Design Solutions</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Floating Elements -->
+  <a href="tel:+8801614044001" class="floating-call-btn d-lg-none">
+    <i class="fas fa-phone"></i>
+  </a>
+  <a href="wa.me/+8801614044001" class="floating-whatsapp-btn d-lg-none">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/logo.png" alt="Interia Decor" height="40">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Parallax Hero Section -->
+  <section class="parallax-hero">
+    <div class="hero-content">
+      <h1 class="animate__animated animate__fadeInDown" id="hero-title">Transform Your Space</h1>
+      <p class="animate__animated animate__fadeInUp" id="hero-subtitle">Premium interior design solutions in Sylhet</p>
+      <a href="contact.html" class="btn btn-primary animate__animated animate__fadeInUp">Get Free Consultation</a>
+    </div>
+  </section>
+
+  <!-- About Preview -->
+  <section class="about-preview">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h2>About Interia Decor</h2>
+          <p id="about-summary">With years of experience in the interior design industry, we bring creativity and functionality to every project.</p>
+          <a href="about.html" class="btn btn-outline-primary">Learn More</a>
+        </div>
+        <div class="col-lg-6">
+          <div class="about-image-container">
+            <div class="img-border"></div>
+            <img src="assets/images/about-preview.jpg" alt="About Interia Decor" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Preview Section -->
+  <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Our Services</h2>
+                <p class="lead">We offer comprehensive interior design solutions</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card service-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-home fa-3x mb-3"></i>
+                            <h3 class="card-title">Residential Design</h3>
+                            <p class="card-text">Custom home interiors that reflect your personal style and enhance your living experience.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-building fa-3x mb-3"></i>
+                            <h3 class="card-title">Commercial Design</h3>
+                            <p class="card-text">Professional spaces designed to impress clients and improve productivity.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-pencil-ruler fa-3x mb-3"></i>
+                            <h3 class="card-title">Space Planning</h3>
+                            <p class="card-text">Optimizing your space for functionality, flow and aesthetic appeal.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="text-center mt-4">
+                <a href="services.html" class="btn btn-dark">Discover</a>
+            </div>
+        </div>
+    </section>
+
+  <!-- Projects Showcase Section -->
+<section class="projects-showcase py-5 bg-light">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <h2 class="section-title">Our Featured Projects</h2>
+      <p class="section-subtitle">Explore our portfolio of exceptional designs</p>
+      <div class="divider mx-auto"></div>
+    </div>
+
+    <div class="project-filters text-center mb-4">
+      <button class="btn btn-filter active" data-filter="all">All Projects</button>
+      <button class="btn btn-filter" data-filter="residential">Residential</button>
+      <button class="btn btn-filter" data-filter="commercial">Commercial</button>
+      <button class="btn btn-filter" data-filter="hospitality">Hospitality</button>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <div class="project-card residential" data-category="residential">
+        <img src="assets/images/projects/modern-villa.jpg" alt="Modern Villa" class="img-fluid">
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3>Modern Villa</h3>
+            <p>Residential Design</p>
+            <a href="projects.html" class="btn btn-outline-light btn-sm">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card commercial" data-category="commercial">
+        <img src="assets/images/projects/corporate-office.jpg" alt="Corporate Office" class="img-fluid">
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3>Corporate Office</h3>
+            <p>Commercial Design</p>
+            <a href="projects.html" class="btn btn-outline-light btn-sm">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card hospitality" data-category="hospitality">
+        <img src="assets/images/projects/boutique-hotel.jpg" alt="Boutique Hotel" class="img-fluid">
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3>Boutique Hotel</h3>
+            <p>Hospitality Design</p>
+            <a href="projects.html" class="btn btn-outline-light btn-sm">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card residential" data-category="residential">
+        <img src="assets/images/projects/apartment-design.jpg" alt="Apartment Design" class="img-fluid">
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3>Luxury Apartment</h3>
+            <p>Residential Design</p>
+            <a href="projects.html" class="btn btn-outline-light btn-sm">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card commercial" data-category="commercial">
+        <img src="assets/images/projects/retail-space.jpg" alt="Retail Space" class="img-fluid">
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3>Retail Space</h3>
+            <p>Commercial Design</p>
+            <a href="projects.html" class="btn btn-outline-light btn-sm">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="projects.html" class="btn btn-primary btn-lg">View Full Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section py-5">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-subtitle">Hear from our satisfied customers</p>
+      <div class="divider mx-auto"></div>
+    </div>
+
+    <div class="testimonial-slider">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card">
+        <div class="testimonial-body">
+          <div class="quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <p class="testimonial-text">"Interia Decor transformed our home into a masterpiece. Their attention to detail and creative vision exceeded all our expectations."</p>
+          <div class="rating mb-3">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+        <div class="testimonial-footer">
+          <div class="client-image">
+            <img src="assets/images/clients/client1.jpg" alt="Client" class="img-fluid rounded-circle">
+          </div>
+          <div class="client-info">
+            <h5 class="client-name">Mr. Rahman</h5>
+            <p class="client-position">Homeowner, Sylhet</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card">
+        <div class="testimonial-body">
+          <div class="quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <p class="testimonial-text">"Our new office space has received countless compliments. The team was professional, creative, and delivered on time and budget."</p>
+          <div class="rating mb-3">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+        <div class="testimonial-footer">
+          <div class="client-image">
+            <img src="assets/images/clients/client2.jpg" alt="Client" class="img-fluid rounded-circle">
+          </div>
+          <div class="client-info">
+            <h5 class="client-name">Ms. Khan</h5>
+            <p class="client-position">Business Owner, Dhaka</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card">
+        <div class="testimonial-body">
+          <div class="quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <p class="testimonial-text">"From concept to completion, Interia Decor made the entire process seamless. Their designs perfectly captured our brand's identity."</p>
+          <div class="rating mb-3">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+        </div>
+        <div class="testimonial-footer">
+          <div class="client-image">
+            <img src="assets/images/clients/client3.jpg" alt="Client" class="img-fluid rounded-circle">
+          </div>
+          <div class="client-info">
+            <h5 class="client-name">Mr. Ahmed</h5>
+            <p class="client-position">Restaurant Owner, Sylhet</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- Social & Contact Section -->
+<section class="social-contact-section py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Facebook Feed Column -->
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="social-card">
+          <div class="section-header mb-4">
+            <h2 class="section-title">Latest Updates</h2>
+            <p class="section-subtitle">Follow us on social media</p>
+            <div class="divider"></div>
+          </div>
+          
+          <div class="facebook-feed">
+            <div class="fb-page" 
+                 data-href="https://www.facebook.com/interiadecorbd"
+                 data-tabs="timeline"
+                 data-width="500"
+                 data-height="400"
+                 data-small-header="false"
+                 data-adapt-container-width="true"
+                 data-hide-cover="false"
+                 data-show-facepile="true">
+              <blockquote cite="https://www.facebook.com/interiadecorbd" class="fb-xfbml-parse-ignore">
+                <a href="https://www.facebook.com/interiadecorbd">Interia Decor</a>
+              </blockquote>
+            </div>
+            
+            <div class="social-links text-center mt-4">
+              <a href="https://facebook.com/interiadecorbd" target="_blank" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-pinterest-p"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Contact CTA Column -->
+      <div class="col-lg-6">
+        <div class="contact-cta-card">
+          <div class="section-header mb-4">
+            <h2 class="section-title">Ready to Transform Your Space?</h2>
+            <p class="section-subtitle">Get in touch with our design experts</p>
+            <div class="divider"></div>
+          </div>
+          
+          <div class="cta-content">
+            <div class="cta-features mb-4">
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <p>Free initial consultation</p>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <p>Personalized design solutions</p>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <p>Transparent pricing</p>
+              </div>
+            </div>
+            
+            <div class="contact-methods">
+              <a href="contact.html" class="btn btn-primary btn-lg btn-block mb-3">
+                <i class="fas fa-envelope mr-2"></i> Send Us a Message
+              </a>
+              
+              <a href="tel:+8801614044001" class="btn btn-outline-primary btn-lg btn-block mb-3">
+                <i class="fas fa-phone mr-2"></i> Call Now: +880 1614 044001
+              </a>
+              
+              <a href="wa.me/+8801614044001" class="btn btn-success btn-lg btn-block whatsapp-btn">
+                <i class="fab fa-whatsapp mr-2"></i> Chat on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <img src="assets/images/logo-white.png" alt="Interia Decor" height="40">
+          <p>Premium interior design solutions in Sylhet, Bangladesh.</p>
+        </div>
+        <div class="col-lg-4">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Sayed Burhan Uddin (R) Road, Nowagaon, Mendibug, Sylhet</p>
+          <p><i class="fas fa-phone"></i> +8801614044001</p>
+          <p><i class="fas fa-envelope"></i> theinteriadecor@gmail.com</p>
+          <div class="social-links">
+            <a href="https://facebook.com/interiadecorbd" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="wa.me/+8801614044001" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> Interia Decor. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
